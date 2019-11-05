@@ -1,57 +1,45 @@
-#include <iostream>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-using namespace std;
-
-         int liczSume(int n)
+namespace ConsoleApp11
+{
+    class Program
+    {
+        public static int liczSume(int n)
         {
-            int liczba = 0;
-            for (int i = 1; i <= n; i++)
+            int start = 0;
+            for(int i = 1; i <= n; i++)
             {
-                liczba += i;
-
+                start += i;
             }
-            return liczba;
+
+            return start;
+
         }
-
-
-int main(int argc, char** argv) {
-	
-	
-	
-	int n, liczba;
-	
-	int suma[20];
-	
-	liczba = 0;
-	
-	
-	for (int i = 1; i <= 10; i++)
+        static void Main(string[] args)
+        {
+            
+            int n = 10;
+            int[] suma = new int[n];
+            int liczba = 0;
+            for(int i = 0; i < n; i++)
             {
-            	
-                cin >> n;
-                if(n >= 1 & n <= 1000) {
-				
-                liczSume(n);
-                suma[i] = liczSume(n);
+                liczba = Convert.ToInt32(Console.ReadLine());
+                if(liczba >= 1 && liczba <= 1000)
+                {
+                    var x  = liczSume(liczba);
+                    suma[i] = x;   
+                }
             }
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(suma[i]);
             }
 
-            for (int i = 1; i <= 10; i++)
-            {
-              cout << suma[i] << endl;
-            }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	cin.get();
-	cin.get();
-	return 0;
+                Console.ReadKey();
+        }
+    }
 }
